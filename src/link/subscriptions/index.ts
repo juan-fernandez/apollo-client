@@ -52,10 +52,6 @@ export class GraphQLWsLink extends ApolloLink {
     super();
   }
 
-  public doSomething () {
-    return 'doSomething'
-  }
-
   public request(operation: Operation): Observable<FetchResult> {
     return new Observable((observer) => {
       return this.client.subscribe<FetchResult>(

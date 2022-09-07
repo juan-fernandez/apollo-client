@@ -47,10 +47,6 @@ export class SchemaLink extends ApolloLink {
     this.validate = !!options.validate;
   }
 
-  public doSomething () {
-    return 'doSomething'
-  }
-
   public request(operation: Operation): Observable<FetchResult> {
     return new Observable<FetchResult>(observer => {
       new Promise<SchemaLink.ResolverContext>(

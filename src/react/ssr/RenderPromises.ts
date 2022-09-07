@@ -31,6 +31,11 @@ export class RenderPromises {
   // beyond a single call to renderToStaticMarkup.
   private queryInfoTrie = new Map<DocumentNode, Map<string, QueryInfo>>();
 
+
+  public find () {
+    return true
+  }
+
   private stopped = false;
   public stop() {
     if (!this.stopped) {

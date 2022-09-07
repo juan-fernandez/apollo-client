@@ -4,7 +4,7 @@ export const canUseWeakMap =
   typeof WeakMap === 'function' &&
   maybe(() => navigator.product) !== 'ReactNative';
 
-export const canUseWeakSet = typeof WeakSet === 'function';
+export const canUseWeakSet = typeof WeakSet === 'function' || false;
 
 export const canUseSymbol =
   typeof Symbol === 'function' &&

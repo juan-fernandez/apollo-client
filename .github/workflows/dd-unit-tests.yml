@@ -3,23 +3,25 @@ name: Unit tests
 on:
   push:
     branches:
-      - main
-  pull_request:
-    types: [opened, synchronize, reopened]
+      - '**'
 
 jobs:
-  tests:
+  tests-prod:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '16'
       - name: Install dependencies
         run: npm install
+      - name: Install dd-trace
+        run: npm install --save-dev https://github.com/DataDog/dd-trace-js/tarball/juan-fernandez/test-skipping-suites-demo
       - name: run unit tests
-        run: npm run test
+        run: npm run test -- --silent --coverage --passWithNoTests
         env:
           NODE_OPTIONS: -r dd-trace/ci/init
           DD_API_KEY: ${{ secrets.DD_API_KEY }}
@@ -28,7 +30,35 @@ jobs:
           DD_TRACE_DEBUG: 1
           DD_TRACE_LOG_LEVEL: error
           DD_CIVISIBILITY_GIT_UPLOAD_ENABLED: 1
-          DD_ENV: ci
+          DD_ENV: ci3
           DD_SERVICE: apollo-client-tests
-          # DD_CIVISIBILITY_ITR_ENABLED: 1
+          DD_CIVISIBILITY_ITR_ENABLED: 1
 
+  tests-staging:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - name: Install dependencies
+        run: npm install
+      - name: Install dd-trace
+        run: npm install --save-dev https://github.com/DataDog/dd-trace-js/tarball/juan-fernandez/test-skipping-suites-demo-staging
+      - name: run unit tests
+        run: npm run test -- --silent --coverage --passWithNoTests
+        env:
+          NODE_OPTIONS: -r dd-trace/ci/init
+          DD_API_KEY: ${{ secrets.DD_API_KEY_STAGING }}
+          DD_CIVISIBILITY_AGENTLESS_ENABLED: 1
+          DD_APP_KEY: ${{ secrets.DD_APP_KEY_STAGING }}
+          DD_SITE: datad0g.com
+          DD_TRACE_DEBUG: 1
+          DD_TRACE_LOG_LEVEL: error
+          DD_CIVISIBILITY_GIT_UPLOAD_ENABLED: 1
+          DD_ENV: ci3
+          DD_SERVICE: apollo-client-tests
+          DD_CIVISIBILITY_ITR_ENABLED: 1

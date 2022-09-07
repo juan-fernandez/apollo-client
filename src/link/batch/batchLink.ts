@@ -67,6 +67,10 @@ export class BatchLink extends ApolloLink {
     }
   }
 
+  public doSomething () {
+    return 'doSomething'
+  }
+
   public request(
     operation: Operation,
     forward?: NextLink,

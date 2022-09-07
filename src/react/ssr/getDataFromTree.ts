@@ -6,6 +6,7 @@ export function getDataFromTree(
   tree: React.ReactNode,
   context: { [key: string]: any } = {}
 ) {
+  console.log('more stuff here bro')
   return getMarkupFromTree({
     tree,
     context,

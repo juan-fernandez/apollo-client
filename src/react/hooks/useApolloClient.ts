@@ -7,6 +7,7 @@ export function useApolloClient(
   override?: ApolloClient<object>,
 ): ApolloClient<object> {
   const context = useContext(getApolloContext());
+  console.log('modifications here')
   const client = override || context.client;
   invariant(
     !!client,

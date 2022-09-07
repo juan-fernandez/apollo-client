@@ -7,6 +7,7 @@ import { useQuery } from '../hooks';
 export function Query<TData = any, TVariables = OperationVariables>(
   props: QueryComponentOptions<TData, TVariables>
 ) {
+  console.log('doing stuff in here')
   const { children, query, ...options } = props;
   const result = useQuery(query, options);
   return result ? children(result as any) : null;

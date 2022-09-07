@@ -131,10 +131,6 @@ export class OperationBatcher {
     return requestCopy.observable;
   }
 
-  public doSomething () {
-    return 'doSomething'
-  }
-
   // Consumes the queue.
   // Returns a list of promises (one for each query).
   public consumeQueue(

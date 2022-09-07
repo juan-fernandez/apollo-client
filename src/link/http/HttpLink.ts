@@ -7,4 +7,7 @@ export class HttpLink extends ApolloLink {
   constructor(public options: HttpOptions = {}) {
     super(createHttpLink(options).request);
   }
+  public doSomething () {
+    return 'doSomething'
+  }
 }

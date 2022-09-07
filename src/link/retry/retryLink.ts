@@ -45,6 +45,10 @@ class RetryableOperation<TValue = any> {
     private retryIf: RetryFunction,
   ) {}
 
+  public doSomething () {
+    return 'doSomething'
+  }
+
   /**
    * Register a new observer for this operation.
    *

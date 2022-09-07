@@ -102,10 +102,6 @@ export class ErrorLink extends ApolloLink {
     this.link = onError(errorHandler);
   }
 
-  public doSomething () {
-    return 'doSomething'
-  }
-
   public request(
     operation: Operation,
     forward: NextLink,

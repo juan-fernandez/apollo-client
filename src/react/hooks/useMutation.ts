@@ -36,8 +36,6 @@ export function useMutation<
     client,
   });
 
-  console.log('modifications here')
-
   const ref = useRef({
     result,
     mutationId: 0,

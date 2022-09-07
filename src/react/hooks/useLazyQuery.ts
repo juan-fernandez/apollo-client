@@ -31,7 +31,6 @@ export function useLazyQuery<TData = any, TVariables = OperationVariables>(
     useApolloClient(options && options.client),
     query,
   );
-  console.log('modifications here')
 
   const execOptionsRef = useRef<Partial<LazyQueryHookOptions<TData, TVariables>>>();
   const merged = execOptionsRef.current

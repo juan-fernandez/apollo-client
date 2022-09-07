@@ -85,7 +85,6 @@ class InternalState<TData, TVariables> {
     public readonly query: DocumentNode | TypedDocumentNode<TData, TVariables>,
     previous?: InternalState<TData, TVariables>,
   ) {
-    console.log('modifications here')
     verifyDocumentType(query, DocumentType.Query);
 
     // Reuse previousData from previous InternalState (if any) to provide

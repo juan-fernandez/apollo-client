@@ -30,9 +30,8 @@ jobs:
           DD_TRACE_DEBUG: 1
           DD_TRACE_LOG_LEVEL: error
           DD_CIVISIBILITY_GIT_UPLOAD_ENABLED: 1
-          DD_ENV: ci2
+          DD_ENV: ci3
           DD_SERVICE: apollo-client-tests
-          DD_CIVISIBILITY_ITR_ENABLED: 1
 
   tests-staging:
     runs-on: ubuntu-latest
@@ -59,6 +58,5 @@ jobs:
           DD_TRACE_DEBUG: 1
           DD_TRACE_LOG_LEVEL: error
           DD_CIVISIBILITY_GIT_UPLOAD_ENABLED: 1
-          DD_ENV: ci2
+          DD_ENV: ci3
           DD_SERVICE: apollo-client-tests
-          DD_CIVISIBILITY_ITR_ENABLED: 1

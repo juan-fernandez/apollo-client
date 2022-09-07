@@ -96,6 +96,10 @@ class InternalState<TData, TVariables> {
     }
   }
 
+  doSomething () {
+    return 'something'
+  }
+
   forceUpdate() {
     // Replaced (in useInternalState) with a method that triggers an update.
     invariant.warn("Calling default no-op implementation of InternalState#forceUpdate");

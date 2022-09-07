@@ -25,7 +25,6 @@ function makeDefaultQueryInfo(): QueryInfo {
 export class RenderPromises {
   // Map from Query component instances to pending fetchData promises.
   private queryPromises = new Map<QueryDataOptions<any, any>, Promise<any>>();
-  console.log('more here and here yeah')
   // Two-layered map from (query document, stringified variables) to QueryInfo
   // objects. These QueryInfo objects are intended to survive through the whole
   // getMarkupFromTree process, whereas specific Query instances do not survive

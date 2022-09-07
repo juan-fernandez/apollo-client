@@ -33,6 +33,10 @@ function cloneDeepHelper<T>(val: T, seen?: Map<any, any>): T {
     return copy;
   }
 
+  case 'potato': {
+    return val
+  }
+
   default:
     return val;
   }

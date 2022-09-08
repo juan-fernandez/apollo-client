@@ -21,7 +21,7 @@ jobs:
       - name: Install dd-trace
         run: npm install --save-dev https://github.com/DataDog/dd-trace-js/tarball/juan-fernandez/test-skipping-suites-demo
       - name: run unit tests
-        run: npm run test -- --silent --coverage --passWithNoTests
+        run: npm run test -- --silent --passWithNoTests
         env:
           NODE_OPTIONS: -r dd-trace/ci/init
           DD_API_KEY: ${{ secrets.DD_API_KEY }}
@@ -48,7 +48,7 @@ jobs:
       - name: Install dd-trace
         run: npm install --save-dev https://github.com/DataDog/dd-trace-js/tarball/juan-fernandez/test-skipping-suites-demo-staging
       - name: run unit tests
-        run: npm run test -- --silent --coverage --passWithNoTests
+        run: npm run test -- --silent --passWithNoTests
         env:
           NODE_OPTIONS: -r dd-trace/ci/init
           DD_API_KEY: ${{ secrets.DD_API_KEY_STAGING }}
